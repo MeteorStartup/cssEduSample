@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+    <title>속성 선택자 실습</title>
+    <style type="text/css">
+        a[href] {color: white;}
+        a[href="www.yes24.com"] {background: blue;}
+        a[href*="w3schools"] {background: red;}
+        a[href^="http"] {background: green;}
+        /*a[href|="http"] {background: green;}*/
+        a[href$="kr"] {background: yellow;}
+        a[href*="daum"] {background: purple;}
+    </style>
+</head>
+
+<body>
+    <h1>속성 선택자</h1>
+    <div>
+        <a href="www.yes24.com">item 1</a>
+        <a href="http">item 2</a>
+        <a href="http://asdf">item 2</a>
+        <a href="www.google.co.kr">item 3</a>
+        <a href="www.w3schools.com">item 4</a>
+        <a href="www.daum.net">item 5</a>
+    </div>
+</body>    
+</html>
+
+
+
+
+
+
+
+
+

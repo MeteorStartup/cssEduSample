@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+    <title>CSS 우선순위 계산</title>
+    <style>
+        div > p.one {
+            background: blue;
+            color: white;
+        }
+        p.two {
+          background-color: red;
+          color: white;
+        }
+
+        /*p {*/
+          /*background-color: green !important;*/
+          /*background-color: blue;*/
+          /*background-color: red;*/
+        /*}*/
+    </style>
+</head>
+
+
+
+<body>
+    <h1>CSS 우선순위 계산</h1>
+    <div>
+        <p class="one two">우선순위</p>
+        <h1 class="one two">h1 요소</h1>
+    </div>
+</body>    
+</html>
