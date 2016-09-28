@@ -1,7 +1,19 @@
 <template name="main">
     <div id="main">
-        <p>
-            이곳은 main 템플릿입니다.
-        </p>
+        <table>
+            <tr>
+                <td>이름</td>
+                <td>나이</td>
+                <td>주소</td>
+            </tr>
+            {{#each 회원정보}}
+            <tr>
+                <td>{{이름}}</td>
+                <td>{{나이}}</td>
+                <td>{{주소}}</td>
+            </tr>
+            {{/each}}
+
+        </table>
     </div>
 </template>

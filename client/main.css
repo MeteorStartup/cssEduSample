@@ -1,7 +1,6 @@
 #main > p {
     color: red;
 }
-
-body {
-    color: gray;
+#main > table > tr > td {
+    border: 1px groove;
 }
