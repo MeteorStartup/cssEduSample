@@ -1,10 +1,18 @@
 <template name="main">
     <div id="main">
+        <div>
+            작성자: <input name="작성자"><br>
+            제목: <input name="제목"><br>
+            본문: <input name="본문"><br>
+            <button name="저장">저장</button>
+        </div>
         <table>
             <tr>
-                <td>이름</td>
-                <td>나이</td>
-                <td>주소</td>
+                <td>작성일시</td>
+                <td>작성자</td>
+                <td>제목</td>
+                <td>본문</td>
+                <td>댓글</td>
             </tr>
             {{#each 회원정보}}
             <tr>
