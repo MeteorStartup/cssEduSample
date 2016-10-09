@@ -9,7 +9,6 @@
         <table class="table">
           <thead>
           <tr>
-            <th>글번호</th>
             <th>작성자</th>
             <th>제목</th>
             <th>작성일시</th>
@@ -33,8 +32,7 @@
 
 <template name="boardItem">
   <tr>
-    <td>{{글번호}}</td>
-    <td>{{작성자}}</td>
+    <td>{{작성자정보.username}}</td>
     <td>{{제목}}</td>
     <td>{{작성일시}}</td>
   </tr>

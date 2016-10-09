@@ -1,8 +1,10 @@
-CollectionBoards = new Meteor.Collection('boards');
+Router.route('/boardList',{
+  template: 'boardList'
+});
 
 Template.boardList.helpers({
   '게시판글리스트': function() {
-    CollectionBoards.find()
+    return CollectionBoards.find();
   }
 });
 
@@ -20,8 +22,3 @@ Template.boardItem.helpers({
   }
 });
 
-Template.boardList.events({
-  'click [name=btnWrite]': function(err, rslt) {
-
-  }
-});
