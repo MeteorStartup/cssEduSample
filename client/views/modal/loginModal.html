@@ -1,0 +1,40 @@
+<template name="loginModal">
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+          <h2 class="login-hidden-field">로그인</h2>
+          <h2 class="join-hidden-field hidden">회원가입</h2>
+        </div>
+        <div class="modal-body">
+          <div class="login-form">
+            <div class="form-group group">
+              <!--<label for="log-email">Email</label>-->
+              <input type="email" class="form-control" name="log-email" id="log-email" placeholder="이메일 주소를 입력해 주세요." required>
+            </div>
+            <div class="form-group group">
+              <!--<label for="log-password">Password</label>-->
+              <input type="password" class="form-control" name="log-password" id="log-password" placeholder="비밀번호를 입력해 주세요." required>
+            </div>
+            <div class="form-group group hidden join-hidden-field">
+              <!--<label for="log-password">Password confirm</label>-->
+              <input type="password" class="form-control" name="log-password2" id="log-password2" placeholder="비밀번호를 재입력 해주세요." required>
+            </div>
+            <div class="btnGroup">
+              <button class="btn btn-block login-hidden-field" type="button" name="btnLogin">로그인</button>
+              <button class="btn btn-block hidden join-hidden-field" type="button" name="btnJoin" >회원가입</button>
+              <button class="btn btn-block login-hidden-field" name="joinAttempt" style="background-color: #08a340; margin-top: 10px;">
+                회원가입
+              </button>
+              <button class="btn btn-block join-hidden-field hidden" name="loginAttempt" style="background-color: #08a340; margin-top: 10px;">
+                로그인
+              </button>
+            </div>
+          </div>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+</template>

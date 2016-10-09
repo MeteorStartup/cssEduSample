@@ -2,6 +2,7 @@ Router.configure({
   layoutTemplate: 'layout'
 });
 
-Router.route('/', function() {
+Router.route('/', {
   template: 'home'
 });
+

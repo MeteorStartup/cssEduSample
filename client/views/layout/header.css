@@ -1,0 +1,32 @@
+body {
+  position: relative;
+}
+
+#header {
+  color: black;
+}
+#header .navbar {
+  margin-bottom: 0px;
+}
+#header .navbar-toggle {
+  border-color: #dddddd;
+}
+#header .navbar-toggle .icon-bar {
+  background-color: #888888;
+}
+#header .navbar-brand {
+  font-size: 20px;
+  padding: 5px;
+  font-weight: bold;
+}
+
+#header .navbar-brand > .logo-capital {
+  color: red;
+}
+
+#header [name=goTop] {
+  position: fixed;
+  bottom: 30px;
+  right: 10px;
+  z-index: 10000;
+}
