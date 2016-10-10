@@ -33,7 +33,7 @@
 <template name="boardItem">
   <tr>
     <td>{{작성자정보.username}}</td>
-    <td>{{제목}}</td>
+    <td><a href="{{pathFor 'boardDetail' _id=_id}}">{{제목}}</a></td>
     <td>{{작성일시}}</td>
   </tr>
 </template>

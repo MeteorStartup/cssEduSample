@@ -3,18 +3,20 @@
     <div class="row">
       <h3 class="text-center">글작성</h3>
       <form class="form-horizontal">
+        {{#with boardInfo}}
         <div class="form-group">
           <label for="제목" class="col-sm-2 control-label">제목</label>
           <div class="col-sm-10">
-            <input type="email" class="form-control" id="제목" placeholder="제목">
+            <input type="email" class="form-control" id="제목" placeholder="제목" value="{{제목}}">
           </div>
         </div>
         <div class="form-group">
           <label for="내용" class="col-sm-2 control-label">내용</label>
           <div class="col-sm-10">
-            <textarea id="내용" cols="5" class="form-control"></textarea>
+            <textarea id="내용" cols="5" class="form-control">{{{내용}}}</textarea>
           </div>
         </div>
+        {{/with}}
       </form>
 
     </div>

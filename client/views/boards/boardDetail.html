@@ -1,0 +1,80 @@
+<template name="boardDetail">
+  <div id="boardDetail" class="container">
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h3 class="text-center">글상세보기</h3>
+
+        <div class="panel panel-default">
+          <div class="panel-body">
+            {{#with boardInfo}}
+              <form>
+                <div class="form-group">
+                  <label for="제목">제목</label>
+                  <p class="well">{{제목}}</p>
+                </div>
+                <div class="form-group">
+                  <label for="작성자">작성자</label>
+                  <p class="well">{{작성자정보.username}}</p>
+                </div>
+                <div class="form-group">
+                  <label for="작성일시">작성일시</label>
+                  <p class="well">{{작성일시}}</p>
+                </div>
+                <div class="form-group">
+                  <label for="내용">내용</label>
+                  <p class="well">{{{내용}}}</p>
+                </div>
+              </form>
+              <div class="pull-right">
+                <a href="{{pathFor 'boardList'}}">
+                  <button name="btnCancel" class="btn btn-info">뒤로가기</button>
+                </a>
+                {{#if ownUser}}
+                  <button name="boardDelete" class="btn btn-info">삭제</button>
+                  <a href="{{pathFor 'boardEditing' _id=_id}}">
+                    <button name="boardEdit" class="btn btn-info">수정</button>
+                  </a>
+                {{/if}}
+              </div>
+            {{/with}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="primary">
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="form-group">
+              <label class="control-label">댓글</label>
+              <textarea name="taComment" class="form-control" rows="3" cols="1" placeholder="댓글을 작성하세요."></textarea>
+              <br>
+              <button name="saveComment" type="button" class="btn btn-info btn-sm pull-right">댓글작성</button>
+              <br>
+            </div>
+            <div class="comment-div">
+              <ul class="media-list">
+                {{#each boardComments}}
+                  <li class="media">
+                    <div class="media-body">
+                      {{#if ownUser}}
+                        <button name="removeComment" class="btn btn-danger btn-xs pull-right"><i class="glyphicon glyphicon-remove "></i></button>
+                      {{/if}}
+                      <h5 class="media-heading">{{작성자정보.username}} <small>{{작성일시}}</small></h5>
+                      {{{댓글}}}
+                    </div>
+                  </li>
+                {{/each}}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</template>
