@@ -44,8 +44,14 @@ Template.boardDetail.events({
       작성자정보: Meteor.user(),
       댓글: 댓글
     }
-    console.log(obj)
+    // console.log(obj)
     CollectionComments.insert(obj);
     $('[name=taComment]').val('');
+  },
+  'click [name=removeComment]': function(e, tmpl) {
+    // console.log($(e.target).attr('id'));
+    if(confirm('삭제하시겠습니까?')) {
+      CollectionComments.remove({_id: $(e.target).attr('id')});
+    };
   }
 });

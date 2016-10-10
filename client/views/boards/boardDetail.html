@@ -62,7 +62,7 @@
                   <li class="media">
                     <div class="media-body">
                       {{#if ownUser}}
-                        <button name="removeComment" class="btn btn-danger btn-xs pull-right"><i class="glyphicon glyphicon-remove "></i></button>
+                        <button name="removeComment" id="{{_id}}" class="btn btn-danger btn-xs pull-right"><i class="glyphicon glyphicon-remove " id="{{_id}}"></i></button>
                       {{/if}}
                       <h5 class="media-heading">{{작성자정보.username}} <small>{{작성일시}}</small></h5>
                       {{{댓글}}}

@@ -40,6 +40,7 @@ Template.boardWriting.events({
       };
       console.log(obj);
       CollectionBoards.insert(obj);
+      Router.go('boardList');
 
     } else {
       CollectionBoards.update({_id: Router.current().params._id}, {
@@ -47,7 +48,9 @@ Template.boardWriting.events({
           제목: 제목,
           내용: 내용
         }
-      })
+      });
+      Router.go('boardList');
+
     }
   }
 });
