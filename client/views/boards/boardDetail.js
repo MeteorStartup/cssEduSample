@@ -34,6 +34,7 @@ Template.boardDetail.events({
   'click [name=boardDelete]': function(e, tmpl) {
     if(confirm('삭제하시겠습니까?')) {
       CollectionBoards.remove({_id: this._id});
+      Router.go('boardList');
     }
   },
   'click [name=saveComment]': function(e, tmpl) {
