@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <style>
+            /* 1단계 주 메뉴 배치 스타일 적용 */
+            .header ul{
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: auto;
+                border: 1px solid lightgrey;
+                background-color: #ffffff;
+            }            
+            .header li{
+                float: left;
+            }
+            .header li:last-child{
+                float: right;
+            }
+                       
+
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <ul>
+                <li><a class="active" href="#">HOME</a></li>
+                <li><a href="http://www.cine21.com/news/list/?idx=1">영화뉴스</a></li>
+                <li class="dropdown" >
+                    <a class="dropbtn" href="#">영화정보</a>
+                    <div class="dropdown_content">
+                        <a href="http://www.cine21.com/rank/boxoffice/domestic">박스오피스</a>
+                        <a href="http://www.cine21.com/news/list/?idx=3">영화리뷰</a>
+                    </div>
+                </li>
+                <li class="dropdown" >
+                    <a class="dropbtn" href="#">SF영화</a>
+                    <div class="dropdown_content">
+                        <a href="#">스타워즈</a>
+                        <a href="#">에일리언</a>
+                        <a href="#">스타트렉</a>
+                    </div>
+                </li>
+                <li class="dropdown" >
+                    <a class="dropbtn" href="#" style="width:150px;">로그인</a>
+                    <div class="dropdown_content">
+                        <input type="text" id="username" placeholder="사용자 ID">
+                        <input type="password" id="password" placeholder="비밀번호">
+                        <a href="#" id="login">LOG IN</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="img-slides">
+                <ul class="slides">
+                    <input type="radio" name="radiobtn" id="img-1" checked />
+                    <li class="slide-container">
+                        <div class="slide">
+                            <img src="img/movie_cut1.JPG" />
+                        </div>
+                        <div class="slide-nav">
+                            <label for="img-4" class="prev">&#x2039;</label>
+                            <label for="img-2" class="next">&#x203a;</label>
+                        </div>
+                    </li>
+                    <input type="radio" name="radiobtn" id="img-2" />
+                    <li class="slide-container">
+                        <div class="slide">
+                            <img src="img/movie_cut2.JPG" />
+                        </div>
+                        <div class="slide-nav">
+                            <label for="img-1" class="prev">&#x2039;</label>
+                            <label for="img-3" class="next">&#x203a;</label>
+                        </div>
+                    </li>
+                    <input type="radio" name="radiobtn" id="img-3" />
+                    <li class="slide-container">
+                        <div class="slide">
+                            <img src="img/movie_cut3.JPG" />
+                        </div>
+                        <div class="slide-nav">
+                            <label for="img-2" class="prev">&#x2039;</label>
+                            <label for="img-4" class="next">&#x203a;</label>
+                        </div>
+                    </li>
+                    <input type="radio" name="radiobtn" id="img-4" />
+                    <li class="slide-container">
+                        <div class="slide">
+                            <img src="img/movie_cut4.JPG" />
+                        </div>
+                        <div class="slide-nav">
+                            <label for="img-3" class="prev">&#x2039;</label>
+                            <label for="img-1" class="next">&#x203a;</label>
+                        </div>
+                    </li>
+                    <li class="nav-dots">
+                        <label for="img-1" class="nav-dot" id="img-dot-1"></label>
+                        <label for="img-2" class="nav-dot" id="img-dot-2"></label>
+                        <label for="img-3" class="nav-dot" id="img-dot-3"></label>
+                        <label for="img-4" class="nav-dot" id="img-dot-4"></label>
+                    </li>
+                </ul>
+            </div>
+            <div class="events">
+                <h2>영화 이벤트 목록</h2>
+                <div class="movie-event">
+                    <a href="#">
+                        <img src="img/movie_event1.jpg" />
+                    </a>
+                    <a href="#">
+                        <img src="img/movie_event2.jpg" />
+                    </a>
+                    <a href="#">
+                        <img src="img/movie_event3.jpg" />
+                    </a>
+                    <a href="#">
+                        <img src="img/movie_event4.jpg" />
+                    </a>
+                </div>
+            </div>
+            <div class="tab_box">
+                <input id="boxoffice_tab" type="radio" name="tab" checked="checked" />
+                <input id="Planned_tab" type="radio" name="tab" />
+                <div class="tab_buttons">
+                    <label for="boxoffice_tab">박스오피스</label>
+                    <label for="Planned_tab">상영예정작</label>
+                </div>
+                <div class="tab_item">                   
+                    <ol class="item">
+                        <li>
+                            <strong class="tit">곡성: 곽도원, 황정민 주연</strong>
+                        </li>
+                        <li>
+                            <span class="tit">캡틴 아메리카 - 시빌워</span>
+                        </li>
+                        <li>
+                            <span class="tit">탐정 홍길동 - 사라진 마을</span>
+                        </li>
+                        <li>
+                            <span class="tit">다이버전트 - 얼리전트</span>
+                        </li>
+                        <li>
+                            <span class="tit">극장판 안녕 자두야!</span>
+                        </li>
+                    </ol>
+                </div>
+                <div id="tab_item">
+                    <ul class="item">
+                        <li>
+                            <span class="tit">더 보이: 윌리암 브렌트벨 감독</span>
+                        </li>
+                        <li>
+                            <span class="tit">계춘할망: 창감독 (한국)</span>
+                        </li>
+                        <li>
+                            <span class="tit">미나미 양장점의 비밀: 미시마유키코 감독</span>
+                        </li>
+                        <li>
+                            <span class="tit">싱 스트리트: 존 카니 감독</span>
+                        </li>
+                        <li>
+                            <span class="tit">하드코어 헨리: 일리야 나이슐러 감독</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <address>주식회사 프리지아랩 / 경기도 용인시 기흥구 청덕동 488번지 용인 테크노밸리 777호</address>
+            <h4>대표이사: 김도균 / 사업자등록번호 123-45-67890 / 등록일자 2016년 7월  1일 / 편집인 김도균 / 발행일자 2016년 7월 7일 <br><a href="mailto:kimdokyun@outlook.com">메일 보내기</a> / 이 사이트의 모든 권리는 제작자에게 있습니다. </h4>          
+        </div>
+    </body>
+</html>

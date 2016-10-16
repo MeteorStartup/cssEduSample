@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <style>
+            .linear {
+                background: red; /* gradients를 지원하지 않는 브라우저를 위한 설정 */
+                background: linear-gradient(red, yellow); 
+                height: 100px;
+            }
+            
+            .degree {
+                background: red; /* gradients를 지원하지 않는 브라우저를 위한 설정 */
+                background: linear-gradient(270deg, red, yellow); 
+                height: 100px;
+            }
+            
+            .radial {
+                background: red; /* gradients를 지원하지 않는 브라우저를 위한 설정 */
+                background: radial-gradient(red, yellow, green); 
+                height: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Linear Gradient</h1>
+        <div class="linear"></div>
+        <h1>Degree Gradient</h1>
+        <div class="degree"></div>
+        <h1>Radial Gradient</h1>
+        <div class="radial"></div>
+    </body>
+</html>

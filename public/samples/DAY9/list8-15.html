@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <style>
+            
+            @keyframes test{
+                0%{background: red; left: 0px; top: 0px;}
+                25%{background: yellow;left: 200px; top: 0px;}
+                50%{background: green;left: 200px; top: 100px;}
+                75%{background: blue;left: 0px; top: 100px;}
+                100%{background: red;left: 0px; top: 0px;}
+            }
+            
+            div{
+                width: 100px;
+                height: 100px;
+                position: relative;
+                animation: test 3s linear 1s 3;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Animation 축약형</h1>
+        <div> 축약형 블럭</div>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+    <title>드래그 앤 드롭 실습</title>
+    <meta charset="utf-8">
+    <style>
+        #div1 {width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;}
+    </style>
+    <script>
+    
+    //ondragover에서 호출되도록 작성되었음. 반복적으로 호출됨.     
+    //ev.preventDefault()가 drop에도 있지만 이것을 하지 않으면 드롭이 되지 않는다.    
+    function dragover(event) {
+        event.preventDefault();
+        console.log('dragover')
+    }
+
+    //ondragstart에서 호출되도록 작성되었음.
+    //드래그 시작할 때 호출 
+    //ev.target.id에는 drag1이 들어 있음.     
+    function dragstart(event) {
+        console.log('dragstart');
+        event.dataTransfer.setData("dragElementId", event.target.id);
+    }
+
+
+    function drop(event) {
+        //drag함수에서 호출한 소스 요소 아이디를 꺼내서 대상 요소의 자식 요소로 변경한다.  
+        var data = event.dataTransfer.getData("dragElementId");
+        event.target.appendChild(document.getElementById(data));
+    }   
+</script>
+</head>
+
+<body>
+   <p>봄 이미지를 네모박스 안으로 끌어다 놓으시오.</p>
+
+    <div id="div1"  ondrop="drop(event)" ondragover="dragover(event)">
+    </div>
+    <br>
+    <img id="drag1"  src="spring.png" draggable="true" ondragstart="dragstart(event)" > 
+</body>
+
+</html>

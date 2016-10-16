@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+    <title>세션 스토리지 실습</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <div id="result">re</div>
+   <script>
+        // 브라우저가 로컬 저장소를 지원하는지 검사한다.
+        if (typeof(Storage) !== "undefined") {
+            sessionStorage.setItem("name", "HTML5 Session Storage");
+            document.getElementById("result").innerHTML = sessionStorage.getItem("name");
+        } else {
+            document.getElementById("result").innerHTML = "해당 브라우저는 웹 스토리지를 지원하지 않습니다.";
+        }
+    </script>
+
+</body>
+
+</html>

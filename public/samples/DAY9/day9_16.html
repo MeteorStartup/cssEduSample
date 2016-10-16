@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <style>
+            div{
+                width: 100px;
+                height: 100px;
+            }
+            
+            @media screen and (max-width:300px){
+                div{background-color: blue;} 
+            }
+            @media screen and (min-width: 300px) and (max-width:500px){
+                div{background-color: red;} 
+            }
+            @media screen and (min-width: 500px){
+                div{background-color: green;} 
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Media Query 예제</h1>
+        <div>무슨 색깔일까요?</div>
+    </body>
+</html>

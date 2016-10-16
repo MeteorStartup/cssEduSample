@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <style>
+            div{
+                width: 100px;
+                height: 100px;
+                background: orange;
+                margin-bottom: 50px;
+            }
+            .div1{
+                transition: width 2s;
+                transition-delay: 1s;
+            }
+            .div1:hover{
+                width: 300px;
+                background: red;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Delay Transition</h1>
+        <div class="div1"> delay가 적용된 Transition</div>
+    </body>
+</html>

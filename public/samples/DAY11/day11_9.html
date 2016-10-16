@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <style>
+            /* 1단계 주 메뉴 배치 스타일 적용 */
+            .header ul{
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: auto;
+                border: 1px solid lightgrey;
+                background-color: #ffffff;
+            }            
+            .header li{
+                float: left;
+            }
+            .header li:last-child{
+                float: right;
+            }
+            
+            /* 2단계: 주 메뉴 링크 스타일 */
+            .header li a {
+                display: inline-block;
+                text-align: center;
+                padding: 14px 16px;
+                color: #242c42;
+                text-decoration: none;
+            }
+            .header li a.active {
+                color: white;
+                background-color: skyblue;
+            }
+            .header li a:hover:not(.active){
+                background-color: lightgreen;
+            }
+            
+            /* 3단계: 드롭다운 하위 메뉴 스타일 */
+            .header .dropdown_content{
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+            }
+            .header .dropdown:hover .dropdown_content {
+                display: block;
+            }           
+            .header .dropdown_content a{
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                text-align: left;
+                z-index: auto;
+            }
+            
+            /* 4단계: 로그인 하위 메뉴 스타일 */
+            .header .dropdown_content input{
+                width: 100px;
+                color: black;
+                padding: 12px 30px;
+                text-decoration: none;
+                display: block;
+                text-align: left;
+            }
+            
+            /* 5단계: 이미지 슬라이드 전체 레이아웃 스타일 */
+            .img-slides{
+                margin: 40px 0 40px 0;
+            }
+            .slides {
+                padding: 0;
+                width: 809px;
+                height: 420px; /* 자손이 절대위치를 사용하면 부모 태그는 높이 속성 사용 */
+                display: block;
+                margin: 0 auto;
+                position: relative; /* 자손이 부모 위치를 기준으로 절대 위치 */
+                overflow: hidden;
+            }
+            .slides input {display: none;}
+            
+            /* 6단계: 슬라이드 이미지 레이아웃 스타일 */
+            .slide-container {display: block;}
+            
+            .slide {
+                top: 0;
+                opacity: 0;
+                width: 809px;
+                height: 420px;
+                display: block;
+                position: absolute; /* slides의 자식인 slide에서 절대위치를 사용함 */
+                transform: scale(0);
+                transition: all .7s ease-in-out; /* 크기가 작아지는 애니메이션. 모든 속성이 영향 받음 */
+            }
+            .slide img {
+                width: 100%;
+                height: 100%;
+            }
+            
+            /* 7단계: 이미지 슬라이드 네비게이션 마크 스타일 */
+            .slide-nav label{
+                width: 100px;
+                height: 100%;
+                display: none; /* 기본으로 보이지 않도록 한다 */
+                position: absolute; /* slides의 자식인 slide-nav에서 절대위치를 사용함 */
+                opacity: 0;
+                z-index: 9; /* 술라이드 이미지 맨 위에 오도록 설정 */
+                cursor: pointer; /* 레이블 위에 마우스 커서를 올리면 손가락 모양으로 변경 */
+                transition: opacity .2s;
+                color: #FFF;
+                font-size: 150pt;
+                text-align: center;
+                line-height: 420px; /*글자의 수직 정렬을 위해 높이와 같은 크기를 지정한다 */
+                background-color: rgba(255,255,255,0.3);
+                text-shadow: 0px 0px 15px rgb(119,119, 119);
+            }
+            
+            /* 8단계: 슬라이드 네비게이션 동작 */
+            
+            input:checked + .slide-container .slide { /* 라디오버튼이 체크되면 인접 형제선택자의 자손인 slide를 선택 */
+                opacity: 1;
+                transform: scale(1); /* 원래 크기로 되돌린다 */
+                transition: opacity 1s ease-in-out; /* 변경하는 동안 투명도에 애니메이션 효과를 준다. */
+            }
+            
+            input:checked + .slide-container .slide-nav label {display: block;}
+            
+            .slide:hover + .slide-nav label {opacity: 0.5;} /* 슬라이드에 마우스를 올리면 네비게이션 표시의 투명도를 0.5 */
+            .slide-nav label:hover {opacity: 1;} /* 네비게이션위에 마우스 올리면 투명도 1 */
+            .slide-nav .next { right: 0; } /* 다음 이미지를 가리키는 네비게이션 표시를 오른쪽에 배치 */
+            
+            /* 9단계: 점 네비게이션 스타일 적용 */
+            .nav-dots{
+                width: 100%;
+                bottom: 9px;
+                height: 11px;
+                display: block;
+                position: absolute;
+                text-align: center;
+            }
+            
+            .nav-dots .nav-dot{
+                top: -5px;
+                width: 11px;
+                height: 11px;
+                margin: 0 4px;
+                position: relative;
+                border-radius: 100%;
+                display: inline-block;
+                background-color: rgba(255,255,255,0.6);
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <ul>
+                <li><a class="active" href="#">HOME</a></li>
+                <li><a href="http://www.cine21.com/news/list/?idx=1">영화뉴스</a></li>
+                <li class="dropdown" >
+                    <a class="dropbtn" href="#">영화정보</a>
+                    <div class="dropdown_content">
+                        <a href="http://www.cine21.com/rank/boxoffice/domestic">박스오피스</a>
+                        <a href="http://www.cine21.com/news/list/?idx=3">영화리뷰</a>
+                    </div>
+                </li>
+                <li class="dropdown" >
+                    <a class="dropbtn" href="#">SF영화</a>
+                    <div class="dropdown_content">
+                        <a href="#">스타워즈</a>
+                        <a href="#">에일리언</a>
+                        <a href="#">스타트렉</a>
+                    </div>
+                </li>
+                <li class="dropdown" >
+                    <a class="dropbtn" href="#" style="width:150px;">로그인</a>
+                    <div class="dropdown_content">
+                        <input type="text" id="username" placeholder="사용자 ID">
+                        <input type="password" id="password" placeholder="비밀번호">
+                        <a href="#" id="login">LOG IN</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="img-slides">
+                <ul class="slides">
+                    <input type="radio" name="radiobtn" id="img-1" checked />
+                    <li class="slide-container">
+                        <div class="slide">
+                            <img src="img/movie_cut1.JPG" />
+                        </div>
+                        <div class="slide-nav">
+                            <label for="img-4" class="prev">&#x2039;</label>
+                            <label for="img-2" class="next">&#x203a;</label>
+                        </div>
+                    </li>
+                    <input type="radio" name="radiobtn" id="img-2" />
+                    <li class="slide-container">
+                        <div class="slide">
+                            <img src="img/movie_cut2.JPG" />
+                        </div>
+                        <div class="slide-nav">
+                            <label for="img-1" class="prev">&#x2039;</label>
+                            <label for="img-3" class="next">&#x203a;</label>
+                        </div>
+                    </li>
+                    <input type="radio" name="radiobtn" id="img-3" />
+                    <li class="slide-container">
+                        <div class="slide">
+                            <img src="img/movie_cut3.JPG" />
+                        </div>
+                        <div class="slide-nav">
+                            <label for="img-2" class="prev">&#x2039;</label>
+                            <label for="img-4" class="next">&#x203a;</label>
+                        </div>
+                    </li>
+                    <input type="radio" name="radiobtn" id="img-4" />
+                    <li class="slide-container">
+                        <div class="slide">
+                            <img src="img/movie_cut4.JPG" />
+                        </div>
+                        <div class="slide-nav">
+                            <label for="img-3" class="prev">&#x2039;</label>
+                            <label for="img-1" class="next">&#x203a;</label>
+                        </div>
+                    </li>
+                    <li class="nav-dots">
+                        <label for="img-1" class="nav-dot" id="img-dot-1"></label>
+                        <label for="img-2" class="nav-dot" id="img-dot-2"></label>
+                        <label for="img-3" class="nav-dot" id="img-dot-3"></label>
+                        <label for="img-4" class="nav-dot" id="img-dot-4"></label>
+                    </li>
+                </ul>
+            </div>
+            <div class="events">
+                <h2>영화 이벤트 목록</h2>
+                <div class="movie-event">
+                    <a href="#">
+                        <img src="img/movie_event1.jpg" />
+                    </a>
+                    <a href="#">
+                        <img src="img/movie_event2.jpg" />
+                    </a>
+                    <a href="#">
+                        <img src="img/movie_event3.jpg" />
+                    </a>
+                    <a href="#">
+                        <img src="img/movie_event4.jpg" />
+                    </a>
+                </div>
+            </div>
+            <div class="tab_box">
+                <input id="boxoffice_tab" type="radio" name="tab" checked="checked" />
+                <input id="Planned_tab" type="radio" name="tab" />
+                <div class="tab_buttons">
+                    <label for="boxoffice_tab">박스오피스</label>
+                    <label for="Planned_tab">상영예정작</label>
+                </div>
+                <div class="tab_item">                   
+                    <ol class="item">
+                        <li>
+                            <strong class="tit">곡성: 곽도원, 황정민 주연</strong>
+                        </li>
+                        <li>
+                            <span class="tit">캡틴 아메리카 - 시빌워</span>
+                        </li>
+                        <li>
+                            <span class="tit">탐정 홍길동 - 사라진 마을</span>
+                        </li>
+                        <li>
+                            <span class="tit">다이버전트 - 얼리전트</span>
+                        </li>
+                        <li>
+                            <span class="tit">극장판 안녕 자두야!</span>
+                        </li>
+                    </ol>
+                </div>
+                <div class="tab_item">
+                    <ul class="item">
+                        <li>
+                            <span class="tit">더 보이: 윌리암 브렌트벨 감독</span>
+                        </li>
+                        <li>
+                            <span class="tit">계춘할망: 창감독 (한국)</span>
+                        </li>
+                        <li>
+                            <span class="tit">미나미 양장점의 비밀: 미시마유키코 감독</span>
+                        </li>
+                        <li>
+                            <span class="tit">싱 스트리트: 존 카니 감독</span>
+                        </li>
+                        <li>
+                            <span class="tit">하드코어 헨리: 일리야 나이슐러 감독</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <address>주식회사 프리지아랩 / 경기도 용인시 기흥구 청덕동 488번지 용인 테크노밸리 777호</address>
+            <h4>대표이사: 김도균 / 사업자등록번호 123-45-67890 / 등록일자 2016년 7월  1일 / 편집인 김도균 / 발행일자 2016년 7월 7일 <br><a href="mailto:kimdokyun@outlook.com">메일 보내기</a> / 이 사이트의 모든 권리는 제작자에게 있습니다. </h4>          
+        </div>
+    </body>
+</html>

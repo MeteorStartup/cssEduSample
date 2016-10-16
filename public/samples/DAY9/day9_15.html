@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <style>
+            div{
+                margin: 20px;
+                width: 200px;
+                float: left;
+            }
+            img{
+                width: 100%;
+                height: 150px;
+            }
+            
+            .blur {-webkit-filter: blur(3px);filter: blur(3px);}
+            .brightness {-webkit-filter: brightness(20%);filter: brightness(20%);}
+            .contrast {-webkit-filter: contrast(300%);filter: contrast(300%);}
+            .grayscale {-webkit-filter: grayscale(100%);filter: grayscale(100%);}
+            .huerotate {-webkit-filter: hue-rotate(180deg);filter: hue-rotate(180deg);}
+            .invert {-webkit-filter: invert(100%);filter: invert(100%);}
+            .opacity {-webkit-filter: opacity(30%);filter: opacity(30%);}
+            .saturate {-webkit-filter: saturate(10); filter: saturate(10);}
+            .sepia {-webkit-filter: sepia(50%);filter: sepia(50%);}
+            .shadow {-webkit-filter: drop-shadow(4px 8px 10px black);filter: drop-shadow(4px 8px 10px black);}
+            .tint {-webkit-filter: sepia(1) hue-rotate(200deg);filter: sepia(1) hue-rotate(200deg);}
+            .multiple-filter {-webkit-filter: contrast(1.4) saturate(1.8) sepia(.6);filter: contrast(1.4) saturate(1.8) sepia(.6);}
+        </style>
+    </head>
+    <body>
+        <h1>이미지 필터</h1>
+        <div>기본이미지<img src="list8-1.jpg" ></div>
+        <div>blur 3px 필터<img class="blur" src="list8-1.jpg"></div>
+        <div>brightness 20% 필터<img class="brightness" src="list8-1.jpg"></div>
+        <div>contrast 300% 필터<img class="contrast" src="list8-1.jpg"></div>
+        <div>grayscale 100% 필터<img class="grayscale" src="list8-1.jpg"></div>
+        <div>huerotate 180deg 필터<img class="huerotate" src="list8-1.jpg"></div>
+        <div>invert 100% 필터<img class="invert" src="list8-1.jpg"></div>
+        <div>opacity 30% 필터<img class="opacity" src="list8-1.jpg"></div>
+        <div>saturate 10 필터<img class="saturate" src="list8-1.jpg"></div>
+        <div>sepia 50% 필터<img class="sepia" src="list8-1.jpg"></div>
+        <div>shadow black 필터<img class="shadow" src="list8-1.jpg"></div>
+        <div>tint 필터<img class="tint" src="list8-1.jpg"></div>
+        <div>multiple-filter 필터<img class="multiple-filter" src="list8-1.jpg"></div>
+    </body>
+</html>
